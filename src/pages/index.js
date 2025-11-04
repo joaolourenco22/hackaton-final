@@ -1,15 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'next/router';
 import { fetchCandidates, fetchKPIs, seed } from '@/services/api';
 import Filters from '@/components/Filters';
 import KPIs from '@/components/KPIs';
-import Ranking from '@/components/Ranking';
 import IndividualPanel from '@/components/IndividualPanel';
 import ComparisonRadar from '@/components/ComparisonRadar';
 
 export default function Home() {
-  const router = useRouter();
-  const view = (router.query.view || 'dashboard').toString();
   const [filters, setFilters] = useState({
     search: '',
     role: '',
@@ -83,25 +79,6 @@ export default function Home() {
 
         <KPIs kpis={kpis} />
 
-        {view === 'candidatos' && (
-          <section id="candidatos" className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-start">
-            <Ranking
-              candidates={candidates}
-              selectedIds={selectedIds}
-              activeId={activeId}
-              onActiveChange={setActiveId}
-              onToggleSelect={(id) =>
-                setSelectedIds((prev) => {
-                  const exists = prev.includes(id);
-                  if (exists) return prev.filter((x) => x !== id);
-                  if (prev.length >= 3) return prev;
-                  return [...prev, id];
-                })
-              }
-            />
-            <ComparisonRadar candidates={candidates} selectedIds={selectedIds} />
-          </section>
-        )}
 
         <section className="ui-panel p-4">
           <h2 className="text-sm text-gray-700 mb-2">Radar Individual (Soft Skills)</h2>

@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #eef3ff; /* soft blue background like reference */
-  --foreground: #0f172a; /* slate-900 */
-  --primary: #7c3aed; /* violet */
-  --primary-2: #4f46e5; /* indigo */
+  /* Paleta solicitada */
+  --nu-roxo: #8A05BE;
+  --nu-roxo-claro: #BA4DE3;
+  --nu-branco: #FFFFFF;
+  --nu-preto: #191919;
+  --nu-cinza-claro: #F5F5F5;
+  --nu-cinza-escuro: #4F4F4F;
+  --nu-verde-sucesso: #A5D936;
+  --nu-vermelho-erro: #D94343;
+
+  /* Tokens do tema do app mapeando a paleta nova */
+  --background: var(--nu-cinza-claro);
+  --foreground: var(--nu-preto);
+  --primary: var(--nu-roxo);
+  --primary-2: var(--nu-roxo-claro);
   --panel-bg: rgba(255, 255, 255, 0.72);
   --panel-border: rgba(255, 255, 255, 0.65);
   --panel-shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
@@ -32,10 +43,7 @@ body {
 
 /* Shell gradient (background + subtle radial) */
 .ui-shell {
-  background:
-    radial-gradient(1200px 600px at -10% -10%, rgba(79, 70, 229, 0.16), transparent 60%),
-    radial-gradient(900px 500px at 110% 0%, rgba(124, 58, 237, 0.12), transparent 60%),
-    linear-gradient(180deg, #f3f6ff 0%, #eef3ff 40%, #eef2ff 100%);
+  background: var(--background);
 }
 
 /* Glass panels */
@@ -50,19 +58,19 @@ body {
 
 /* Primary button */
 .ui-button-primary {
-  background: linear-gradient(135deg, var(--primary-2), var(--primary));
+  background: var(--primary);
   color: #fff;
   border-radius: 9999px;
   padding: 0.5rem 1rem;
-  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 8px 16px rgba(138, 5, 190, 0.25);
 }
 .ui-button-primary:hover { filter: brightness(1.05); }
 .ui-button-primary:disabled { opacity: 0.6; box-shadow: none; }
 
 /* Chip */
 .ui-chip {
-  background: rgba(124, 58, 237, 0.08);
-  color: #6d28d9;
+  background: color-mix(in srgb, var(--primary) 12%, transparent);
+  color: var(--primary);
   border-radius: 9999px;
   padding: 0.125rem 0.5rem;
   font-size: 0.75rem;
@@ -70,7 +78,7 @@ body {
 
 /* Sidebar gradient card */
 .ui-sidebar {
-  background: linear-gradient(180deg, rgba(59,130,246,0.95), rgba(124,58,237,0.95));
+  background: var(--primary);
   color: #fff;
 }
 .ui-sidebar a { color: #f3f4f6; }

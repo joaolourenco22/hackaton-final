@@ -2,12 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 
 const items = [
-  { label: 'Início', href: '/' },
+  { label: 'Inicio', href: '/' },
   { label: 'Candidatos', href: '/candidatos' },
   { label: 'Filtrar Talento', href: '#' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar2() {
   return (
     <aside className="w-64 shrink-0 h-screen sticky top-0 flex flex-col p-3">
       <div className="ui-sidebar rounded-3xl flex-1 flex flex-col overflow-hidden">
@@ -27,10 +27,9 @@ export default function Sidebar() {
             ))}
           </ul>
         </nav>
-        <div className="px-5 py-4 border-t border-white/15 text-xs text-white/80">Â© {new Date().getFullYear()} EGJP Solution</div>
+        <div className="px-5 py-4 border-t border-white/15 text-xs text-white/80">EGJP Solution {new Date().getFullYear()}</div>
       </div>
     </aside>
   );
 }
-
 
