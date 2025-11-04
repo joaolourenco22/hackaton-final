@@ -1,19 +1,17 @@
 import React from 'react';
-import Image from 'next/image';
 
 const items = [
-  { label: 'Início', href: '/' },
+  { label: 'Inicio', href: '/' },
   { label: 'Candidatos', href: '/candidatos' },
   { label: 'Filtrar Talento', href: '#' },
 ];
 
-export default function Sidebar() {
+export default function Sidebar2() {
   return (
     <aside className="w-64 shrink-0 h-screen sticky top-0 flex flex-col p-3">
       <div className="ui-sidebar rounded-3xl flex-1 flex flex-col overflow-hidden">
         <div className="h-20 px-5 flex items-center gap-3 border-b border-white/15">
-          <Image src="/file.svg" alt="EGJP Solution" width={28} height={28} />
-          <span className="font-semibold">EGJP Solution</span>
+          <span className="font-semibold">DevMatch</span>
         </div>
         <nav className="flex-1 overflow-y-auto py-4" aria-label="Sidebar">
           <ul className="space-y-1 px-3">
@@ -27,10 +25,8 @@ export default function Sidebar() {
             ))}
           </ul>
         </nav>
-        <div className="px-5 py-4 border-t border-white/15 text-xs text-white/80">Â© {new Date().getFullYear()} EGJP Solution</div>
+        <div className="px-5 py-4 border-t border-white/15 text-xs text-white/80">DevMatch {new Date().getFullYear()}</div>
       </div>
     </aside>
   );
 }
-
-
