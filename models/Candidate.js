@@ -21,7 +21,7 @@ const candidateSchema = new mongoose.Schema(
     tags: { type: [String], default: [] },
     hard_score: { type: Number, min: 0, max: 100, required: true },
     soft_skills: { type: softSkillsSchema, required: true },
-    preference: { type: String, enum: ['full_time', 'part_time', 'hybrid'], default: 'full_time', index: true },
+    preference: { type: String, enum: ['remote', 'presencial', 'hybrid'], default: 'presencial', index: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   },

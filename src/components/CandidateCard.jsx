@@ -21,7 +21,6 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
     const langSet = new Set();
     const pushIf = (cond, name) => { if (cond) langSet.add(name); };
 
-    // From tags/stack
     pushIf(t.some(x => ['javascript', 'js', 'node', 'react', 'vue', 'next'].some(k => x.includes(k))), 'JavaScript');
     pushIf(t.some(x => ['typescript', 'ts'].some(k => x.includes(k))), 'TypeScript');
     pushIf(t.some(x => x.includes('python')), 'Python');
@@ -38,7 +37,7 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
     pushIf(t.some(x => x.includes('html')), 'HTML');
     pushIf(t.some(x => x.includes('css') || x.includes('sass') || x.includes('tailwind')), 'CSS');
 
-    // From role/title inference (fallbacks)
+    // Role inference fallback
     pushIf(r.includes('front'), 'JavaScript');
     pushIf(r.includes('front'), 'TypeScript');
     pushIf(r.includes('full'), 'TypeScript');
@@ -65,6 +64,12 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
     const last = parts.length > 1 ? parts[parts.length - 1][0] : '';
     return (first + last).toUpperCase();
   };
+
+  const modeRaw = String(candidate.work_mode || candidate.preference || '').toLowerCase();
+  let workModeLabel = '';
+  if (modeRaw === 'remote' || modeRaw === 'remoto' || modeRaw === 'part_time') workModeLabel = 'Remoto';
+  else if (modeRaw === 'hybrid' || modeRaw === 'hibrido' || modeRaw === 'híbrido') workModeLabel = 'Híbrido';
+  else if (modeRaw === 'onsite' || modeRaw === 'presencial' || modeRaw === 'full_time') workModeLabel = 'Presencial';
 
   return (
     <article
@@ -114,11 +119,7 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
         {Number.isFinite(candidate.years_experience) && (
           <span className="ui-chip">{candidate.years_experience} anos exp.</span>
         )}
-        {(() => {
-          const p = String(candidate.preference || '').toLowerCase();
-          const label = p === 'hybrid' ? 'Híbrido' : p === 'part_time' ? 'Part-time' : p === 'full_time' ? 'Full-time' : '';
-          return label ? <span className="ui-chip">{label}</span> : null;
-        })()}
+        {workModeLabel && <span className="ui-chip">{workModeLabel}</span>}
       </div>
 
       {/* Location */}
@@ -146,7 +147,6 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
         )}
       </div>
 
-      {/* No bottom buttons, rely on side icons only */}
     </article>
   );
 }

@@ -75,7 +75,6 @@ export default function Home() {
       <div className="max-w-7xl mx-auto space-y-4">
         <header className="flex items-center justify-between">
           <h1 className="text-xl font-semibold">Dashboard do Recrutador</h1>
-          <div className="text-sm text-gray-800">Peso Hard: {(weightHard * 100).toFixed(0)}%</div>
         </header>
 
         <Filters

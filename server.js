@@ -264,8 +264,8 @@ app.post('/api/candidates', async (req, res) => {
 
     const soft = body.soft_skills || {};
     const prefRaw = String(body.preference || '').toLowerCase();
-    const allowedPrefs = ['full_time', 'part_time', 'hybrid'];
-    const preference = allowedPrefs.includes(prefRaw) ? prefRaw : 'full_time';
+    const allowedPrefs = ['remote', 'presencial', 'hybrid'];
+    const preference = allowedPrefs.includes(prefRaw) ? prefRaw : 'presencial';
     const cleaned = {
       name: String(body.name || '').trim(),
       role: String(body.role || '').trim(),
@@ -335,7 +335,7 @@ app.post('/api/seed', async (req, res) => {
       { name: 'Tiago Vieira', role: 'Mobile Developer', location: 'Curitiba', years_experience: 3, tags: ['android', 'kotlin'], hard_score: 82, soft_skills: { communication: 68, teamwork: 72, problem_solving: 86, adaptability: 62, leadership: 55, creativity: 59 } },
     ];
 
-    const prefs = ['full_time','part_time','hybrid'];
+    const prefs = ['remote','presencial','hybrid'];
     const sampleWithPrefs = sample.map((c,i)=>({ ...c, preference: prefs[i % prefs.length] }));
     const inserted = await Candidate.insertMany(sampleWithPrefs);
     res.status(201).json({ inserted: inserted.length });
