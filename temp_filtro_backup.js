@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import Filters from "@/components/Filters";
 import KPIs from "@/components/KPIs";
 import CandidateCardAll from "@/components/CandidateCardAll";
@@ -49,77 +49,54 @@ function deriveStacks(c) {
 // Mocked candidates
 const MOCK_CANDIDATES = [
   {
-    _id: 'c1', name: 'Ana Souza', role: 'Desenvolvedora Frontend', location: 'São Paulo',
+    _id: 'c1', name: 'Ana Souza', role: 'Desenvolvedora Frontend', location: 'SÃ£o Paulo',
     work_mode: 'remote', carga: 'full_time', relocate: 'no', years_experience: 4,
     tags: ['react','typescript','javascript','css','tailwind','next'], total_score: 82, hard_score: 78,
-    soft_skills: { 'Comunicação': 4, 'Colaboração': 5, 'Liderança': 3, 'Adaptabilidade': 4, 'Resolução de Problemas': 4, 'Criatividade': 4 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 4, 'Criatividade': 4 },
   },
   {
     _id: 'c2', name: 'Bruno Lima', role: 'Engenheiro Backend', location: 'Rio de Janeiro',
     work_mode: 'hybrid', carga: 'full_time', relocate: 'yes', years_experience: 6,
     tags: ['node','typescript','docker','aws','postgres','express'], total_score: 88, hard_score: 84,
-    soft_skills: { 'Comunicação': 3, 'Colaboração': 4, 'Liderança': 4, 'Adaptabilidade': 5, 'Resolução de Problemas': 5, 'Criatividade': 3 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 3, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 4, 'Adaptabilidade': 5, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 3 },
   },
   {
     _id: 'c3', name: 'Carla Mendes', role: 'Cientista de Dados', location: 'Belo Horizonte',
     work_mode: 'remote', carga: 'part_time', relocate: 'no', years_experience: 3,
     tags: ['python','ml','pandas','gcp','sql'], total_score: 79, hard_score: 76,
-    soft_skills: { 'Comunicação': 4, 'Colaboração': 4, 'Liderança': 3, 'Adaptabilidade': 4, 'Resolução de Problemas': 5, 'Criatividade': 4 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 4 },
   },
   {
     _id: 'c4', name: 'Diego Alves', role: 'DevOps Engineer', location: 'Curitiba',
     work_mode: 'onsite', carga: 'full_time', relocate: 'yes', years_experience: 5,
     tags: ['aws','kubernetes','docker','terraform','go'], total_score: 85, hard_score: 83,
-    soft_skills: { 'Comunicação': 3, 'Colaboração': 5, 'Liderança': 3, 'Adaptabilidade': 4, 'Resolução de Problemas': 5, 'Criatividade': 3 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 3, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 3 },
   },
   {
     _id: 'c5', name: 'Eduarda Pires', role: 'Mobile Developer', location: 'Porto Alegre',
     work_mode: 'hybrid', carga: 'part_time', relocate: 'no', years_experience: 2,
     tags: ['kotlin','android','swift','ios'], total_score: 72, hard_score: 70,
-    soft_skills: { 'Comunicação': 5, 'Colaboração': 4, 'Liderança': 2, 'Adaptabilidade': 4, 'Resolução de Problemas': 3, 'Criatividade': 5 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 5, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 2, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 3, 'Criatividade': 5 },
   },
   {
     _id: 'c6', name: 'Felipe Santos', role: 'Full Stack Developer', location: 'Recife',
     work_mode: 'remote', carga: 'full_time', relocate: 'yes', years_experience: 7,
     tags: ['react','node','typescript','next','postgres','docker'], total_score: 91, hard_score: 90,
-    soft_skills: { 'Comunicação': 4, 'Colaboração': 5, 'Liderança': 4, 'Adaptabilidade': 5, 'Resolução de Problemas': 5, 'Criatividade': 4 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 4, 'Adaptabilidade': 5, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 4 },
   },
   {
-    _id: 'c7', name: 'Gabriela Rocha', role: 'QA Engineer', location: 'São Paulo',
+    _id: 'c7', name: 'Gabriela Rocha', role: 'QA Engineer', location: 'SÃ£o Paulo',
     work_mode: 'onsite', carga: 'full_time', relocate: 'no', years_experience: 4,
     tags: ['cypress','jest','javascript','typescript'], total_score: 74, hard_score: 71,
-    soft_skills: { 'Comunicação': 4, 'Colaboração': 5, 'Liderança': 3, 'Adaptabilidade': 3, 'Resolução de Problemas': 4, 'Criatividade': 3 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 3, 'Adaptabilidade': 3, 'ResoluÃ§Ã£o de Problemas': 4, 'Criatividade': 3 },
   },
   {
-    _id: 'c8', name: 'Hugo Pereira', role: 'Engenheiro Backend', location: 'Florianópolis',
+    _id: 'c8', name: 'Hugo Pereira', role: 'Engenheiro Backend', location: 'FlorianÃ³polis',
     work_mode: 'remote', carga: 'full_time', relocate: 'yes', years_experience: 8,
     tags: ['java','spring','aws','kubernetes','mysql'], total_score: 87, hard_score: 85,
-    soft_skills: { 'Comunicação': 3, 'Colaboração': 4, 'Liderança': 5, 'Adaptabilidade': 4, 'Resolução de Problemas': 5, 'Criatividade': 3 },
+    soft_skills: { 'ComunicaÃ§Ã£o': 3, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 5, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 3 },
   },
 ];
-
-// Expande a lista mock clonando variações leves para testes de filtro
-function expandCandidates(base = [], times = 3) {
-  const locs = ['Porto', 'Lisboa', 'Algarve', 'Braga'];
-  const out = [...base];
-  for (let t = 1; t <= times; t++) {
-    base.forEach((c, idx) => {
-      const id = `${c._id}_x${t}`;
-      const name = `${c.name} ${t+1}`;
-      const location = locs[(idx + t) % locs.length];
-      const tweak = (v) => Math.max(50, Math.min(100, Math.round((Number(v)||0) + (t*3) - (idx%2?2:0))));
-      out.push({
-        ...c,
-        _id: id,
-        name,
-        location,
-        total_score: tweak(c.total_score),
-        hard_score: tweak(c.hard_score),
-      });
-    });
-  }
-  return out;
-}
 
 export default function Fil() {
   const [filters, setFilters] = useState({
@@ -140,11 +117,8 @@ export default function Fil() {
   const [stacks, setStacks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [kpis, setKpis] = useState(null);
-  const initialExpanded = expandCandidates(MOCK_CANDIDATES, 7);
-  const fixedLocs = ['Porto', 'Lisboa', 'Algarve', 'Braga'];
-  const normalized = initialExpanded.map((c, i) => ({ ...c, location: fixedLocs[i % fixedLocs.length] }));
-  const [candidates, setCandidates] = useState(normalized);
-  const [list, setList] = useState(normalized);
+  const [candidates, setCandidates] = useState(MOCK_CANDIDATES);
+  const [list, setList] = useState(MOCK_CANDIDATES);
   const [selectedIds, setSelectedIds] = useState([]);
 
   function computeSoftScore(c) {
@@ -157,51 +131,53 @@ export default function Fil() {
   useEffect(() => {
     try {
       const uniq = (arr) => Array.from(new Set(arr.filter(Boolean))).sort((a, b) => String(a).localeCompare(String(b)));
-      setRoles(uniq(candidates.map((c) => c.role)));
-      setLocations(uniq(candidates.map((c) => c.location)));
+      // ensure soft_score exists for comparison
+      const withSoft = candidates.map((c) => ({ ...c, soft_score: Number.isFinite(c.soft_score) ? c.soft_score : computeSoftScore(c) }));
+      setCandidates(withSoft);
+
+      setRoles(uniq(withSoft.map((c) => c.role)));
+      setLocations(uniq(withSoft.map((c) => c.location)));
       const stacksSet = new Set();
-      candidates.forEach((c) => deriveStacks(c).forEach((x) => stacksSet.add(x)));
+      withSoft.forEach((c) => deriveStacks(c).forEach((x) => stacksSet.add(x)));
       setStacks(Array.from(stacksSet).sort((a, b) => a.localeCompare(b)));
-      setList(candidates.slice().sort((a, b) => Number(b.total_score||0) - Number(a.total_score||0)));
-      const avgHard = candidates.reduce((s, c) => s + (Number(c.hard_score) || 0), 0) / Math.max(candidates.length, 1);
-      setKpis({ count: candidates.length, average_hard: avgHard / 10 });
+      setList(withSoft.slice().sort((a, b) => Number(b.total_score||0) - Number(a.total_score||0)));
+      const avgHard = withSoft.reduce((s, c) => s + (Number(c.hard_score) || 0), 0) / Math.max(withSoft.length, 1);
+      setKpis({ count: withSoft.length, average_hard: avgHard / 10 });
     } catch (e) {
       console.error(e);
     }
   }, [candidates]);
 
-  async function onApply(nextFilters) {
+  async function onApply() {
     setLoading(true);
     try {
-      const f = nextFilters || filters;
-      const disableRegion = f.home_office === 'yes' || f.modalidade === 'remote';
+      const disableRegion = filters.home_office === 'yes' || filters.modalidade === 'remote';
       const minYearsMap = { '0-1': 0, '2-3': 2, '4-6': 4, '7+': 7 };
-      const minYears = f.experience ? minYearsMap[f.experience] : undefined;
-      const minSoftLikert = Number(f.min_soft);
+      const minYears = filters.experience ? minYearsMap[filters.experience] : undefined;
+      const minSoftLikert = Number(filters.min_soft);
       const minSoftPct = Number.isFinite(minSoftLikert) && minSoftLikert > 0 ? (minSoftLikert / 5) * 100 : 0;
-      const softOf = (c) => (Number.isFinite(c.soft_score) ? Number(c.soft_score) : computeSoftScore(c));
 
       const filtered = candidates.filter((c) => {
-        if (f.role && c.role !== f.role) return false;
-        if (!disableRegion && f.location && c.location !== f.location) return false;
-        if (f.modalidade && c.work_mode !== f.modalidade) return false;
-        if (f.carga && c.carga !== f.carga) return false;
-        if (f.relocate && (f.relocate === 'yes' ? c.relocate !== 'yes' : c.relocate !== 'no')) return false;
+        if (filters.role && c.role !== filters.role) return false;
+        if (!disableRegion && filters.location && c.location !== filters.location) return false;
+        if (filters.modalidade && c.work_mode !== filters.modalidade) return false;
+        if (filters.carga && c.carga !== filters.carga) return false;
+        if (filters.relocate && (filters.relocate === 'yes' ? c.relocate !== 'yes' : c.relocate !== 'no')) return false;
         if (typeof minYears === 'number' && !(Number(c.years_experience) >= minYears)) return false;
-        if (Array.isArray(f.stacks) && f.stacks.length) {
+        if (Array.isArray(filters.stacks) && filters.stacks.length) {
           const cs = new Set(deriveStacks(c));
-          const allSelectedPresent = f.stacks.every((s) => cs.has(s));
+          const allSelectedPresent = filters.stacks.every((s) => cs.has(s));
           if (!allSelectedPresent) return false;
         }
-        if (f.home_office === 'yes' && !(c.work_mode === 'remote' || c.work_mode === 'hybrid')) return false;
-        if (f.home_office === 'no' && !(c.work_mode === 'onsite')) return false;
-        if (minSoftPct > 0 && softOf(c) < minSoftPct) return false;
+        if (filters.home_office === 'yes' && !(c.work_mode === 'remote' || c.work_mode === 'hybrid')) return false;
+        if (filters.home_office === 'no' && !(c.work_mode === 'onsite')) return false;
+        if (minSoftPct > 0 && Number(c.soft_score || 0) < minSoftPct) return false;
         return true;
       });
 
-      const sortBy = (f.sort_by || 'total');
+      const sortBy = (filters.sort_by || 'total');
       filtered.sort((a, b) => {
-        if (sortBy === 'soft') return softOf(b) - softOf(a);
+        if (sortBy === 'soft') return Number(b.soft_score || 0) - Number(a.soft_score || 0);
         if (sortBy === 'hard') return Number(b.hard_score || 0) - Number(a.hard_score || 0);
         return Number(b.total_score || 0) - Number(a.total_score || 0);
       });
@@ -242,22 +218,22 @@ export default function Fil() {
 
         <KPIs kpis={kpis} />
 
-        {/* Seleção para comparação */}
+        {/* SeleÃ§Ã£o para comparaÃ§Ã£o */}
         <section className="ui-panel p-4">
           <div className="flex items-center justify-between gap-3 flex-wrap">
-            <div className="text-sm text-gray-800">Selecionados para comparação ({selectedIds.length}/3)</div>
+            <div className="text-sm text-gray-800">Selecionados para comparaÃ§Ã£o ({selectedIds.length}/3)</div>
             <div className="flex gap-2 flex-wrap">
               {selectedIds.map((id) => {
                 const c = list.find((x) => x._id === id) || candidates.find((x) => x._id === id);
                 return c ? (
                   <span key={id} className="ui-chip inline-flex items-center">
                     {c.name}
-                    <button className="ml-2 text-gray-500 hover:text-gray-700" onClick={() => toggleSelected(id)}>×</button>
+                    <button className="ml-2 text-gray-500 hover:text-gray-700" onClick={() => toggleSelected(id)}>Ã—</button>
                   </span>
                 ) : null;
               })}
               {selectedIds.length > 0 && (
-                <button className="text-sm text-violet-700 hover:text-violet-900" onClick={() => setSelectedIds([])}>Limpar seleção</button>
+                <button className="text-sm text-violet-700 hover:text-violet-900" onClick={() => setSelectedIds([])}>Limpar seleÃ§Ã£o</button>
               )}
             </div>
           </div>
@@ -284,3 +260,4 @@ export default function Fil() {
     </>
   );
 }
+
