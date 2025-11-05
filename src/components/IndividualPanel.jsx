@@ -2,27 +2,44 @@ import React from 'react';
 import Radar from './Radar';
 
 export default function IndividualPanel({ candidate }) {
-  if (!candidate) {
-    return <div className="text-sm text-gray-600">Selecione um candidato no ranking.</div>;
-  }
-
-  const axes = ['Comunicação', 'Trabalho em Equipe', 'Resolução de Problemas', 'Adaptabilidade', 'Liderança', 'Criatividade'];
-  const values = [
-    candidate.soft_skills?.communication ?? 0,
-    candidate.soft_skills?.teamwork ?? 0,
-    candidate.soft_skills?.problem_solving ?? 0,
-    candidate.soft_skills?.adaptability ?? 0,
-    candidate.soft_skills?.leadership ?? 0,
-    candidate.soft_skills?.creativity ?? 0,
+  const axes = [
+    'Comunicação',
+    'Trabalho em Equipe',
+    'Resolução de Problemas',
+    'Adaptabilidade',
+    'Liderança',
+    'Criatividade',
   ];
 
-  return (
-    <div className="grid grid-cols-1 gap-6 items-center">
-      <p className="text-sm font-medium text-gray-700 text-center">{candidate.name}</p>
-      <div className="md:col-span-2">
-        <Radar title={`Soft Skills de ${candidate.name}`} axes={axes} datasets={[{ label: candidate.name, color: '#7c3aed', values }]} maxValue={100} />
-      </div>
+  const values = candidate
+    ? [
+        candidate.soft_skills?.communication ?? 0,
+        candidate.soft_skills?.teamwork ?? 0,
+        candidate.soft_skills?.problem_solving ?? 0,
+        candidate.soft_skills?.adaptability ?? 0,
+        candidate.soft_skills?.leadership ?? 0,
+        candidate.soft_skills?.creativity ?? 0,
+      ]
+    : [];
 
+  const datasets = candidate
+    ? [{ label: candidate.name, color: '#7c3aed', values }]
+    : [];
+
+  return (
+    <div className="grid grid-cols-1 gap-3 items-center">
+      <div className="md:col-span-2">
+        <Radar
+          title={candidate ? `Soft Skills de ${candidate.name}` : 'Soft Skills'}
+          axes={axes}
+          datasets={datasets}
+          maxValue={100}
+        />
+      </div>
+      {!candidate && (
+        <p className="text-xs text-gray-600 text-center">Selecione um candidato para visualizar o radar.</p>
+      )}
     </div>
   );
 }
+

@@ -29,7 +29,6 @@ export default function Home() {
       const [list, kpiData] = await Promise.all([fetchCandidates(params), fetchKPIs(params)]);
       setCandidates(list);
       setKpis(kpiData);
-      if (list.length && !activeId) setActiveId(list[0]._id);
     } catch (e) {
       console.error(e);
     } finally {
