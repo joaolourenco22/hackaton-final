@@ -55,19 +55,19 @@ const MOCK_CANDIDATES = [
     soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 4, 'Criatividade': 4 },
   },
   {
-    _id: 'c2', name: 'Bruno Lima', role: 'Engenheiro Backend', location: 'Rio de Janeiro',
+    _id: 'c2', name: 'Bruno Lima', role: 'Engenheiro Backend', location: 'Braga',
     work_mode: 'hybrid', carga: 'full_time', relocate: 'yes', years_experience: 6,
     tags: ['node','typescript','docker','aws','postgres','express'], total_score: 88, hard_score: 84,
     soft_skills: { 'ComunicaÃ§Ã£o': 3, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 4, 'Adaptabilidade': 5, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 3 },
   },
   {
-    _id: 'c3', name: 'Carla Mendes', role: 'Cientista de Dados', location: 'Belo Horizonte',
+    _id: 'c3', name: 'Carla Mendes', role: 'Cientista de Dados', location: 'Aveiro',
     work_mode: 'remote', carga: 'part_time', relocate: 'no', years_experience: 3,
     tags: ['python','ml','pandas','gcp','sql'], total_score: 79, hard_score: 76,
     soft_skills: { 'ComunicaÃ§Ã£o': 4, 'ColaboraÃ§Ã£o': 4, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 4 },
   },
   {
-    _id: 'c4', name: 'Diego Alves', role: 'DevOps Engineer', location: 'Curitiba',
+    _id: 'c4', name: 'Diego Alves', role: 'DevOps Engineer', location: 'Aveiro',
     work_mode: 'onsite', carga: 'full_time', relocate: 'yes', years_experience: 5,
     tags: ['aws','kubernetes','docker','terraform','go'], total_score: 85, hard_score: 83,
     soft_skills: { 'ComunicaÃ§Ã£o': 3, 'ColaboraÃ§Ã£o': 5, 'LideranÃ§a': 3, 'Adaptabilidade': 4, 'ResoluÃ§Ã£o de Problemas': 5, 'Criatividade': 3 },

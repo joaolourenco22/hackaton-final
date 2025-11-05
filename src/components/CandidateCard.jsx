@@ -82,7 +82,7 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
       style={{ cursor: onClick ? 'pointer' : 'default' }}
     >
       {/* Accent shape */}
-      <div className="absolute -top-6 -left-6 w-28 h-28 bg-[var(--primary-2)] rounded-br-[64px] opacity-90" aria-hidden />
+      <div className="absolute -top-12 -left-8 w-28 h-28 bg-[var(--primary-2)] rounded-br-[64px] opacity-90" aria-hidden />
 
       {/* Side social icons */}
       <div className="absolute top-4 right-4 flex flex-col gap-2" aria-label="Redes sociais">
@@ -95,12 +95,7 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
       </div>
 
       {/* Header */}
-      <div className="flex flex-col items-center text-center">
-        <div className="relative -mt-2 mb-2">
-          <div className="w-20 h-20 rounded-full bg-[var(--primary)] text-white flex items-center justify-center text-xl font-semibold ring-4 ring-white shadow" aria-label="Avatar">
-            {initials(candidate.name)}
-          </div>
-        </div>
+      <div className="flex flex-col items-center text-center pt-5 pb-5">
         <div className="text-lg font-semibold text-[var(--foreground)]">{candidate.name}</div>
         <div className="text-sm text-[color:var(--text-muted)]">{candidate.role}</div>
       </div>

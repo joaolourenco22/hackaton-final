@@ -38,7 +38,7 @@ export default function Sidebar2() {
 
   return (
     <aside className="w-64 shrink-0 h-screen sticky top-0 left-0 flex flex-col">
-      <div className="flex-1 flex flex-col overflow-hidden bg-gradient-to-b from-violet-600 to-indigo-600 text-white">
+      <div className="ui-sidebar rounded-3xl flex-1 flex flex-col overflow-hidden">
         <div className="h-20 px-5 flex items-center border-b border-white/15">
           <Image src="/logotipoN.png" alt="EGJP Solution" width={80} height={80}  />
           <span className="ml-2 font-semibold tracking-wide">DevMatch</span>

@@ -88,9 +88,10 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="lg:col-span-1 ui-panel p-4">
-            <h2 className="text-sm text-gray-700 mb-2">Radar Individual (Soft Skills)</h2>
-            <IndividualPanel candidate={activeCandidate} />
+          <section className="lg:col-span-1 ui-panel p-4 items-center">
+<h2 className="text-md font-semibold text-center text-gray-700 mb-8">
+  Radar Individual (Soft Skills)
+</h2>            <IndividualPanel candidate={activeCandidate} />
           </section>
         </div>
 

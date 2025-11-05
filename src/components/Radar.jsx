@@ -36,29 +36,71 @@ export default function Radar({
   }
 
   return (
-    <svg width={width} height={height} role="img" aria-label={title} className="w-full h-auto">
-      <title>{title}</title>
-      {grid.map((r, idx) => (
-        <circle key={idx} cx={cx} cy={cy} r={r} fill="none" stroke="var(--panel-border)" />
-      ))}
-      {axes.map((label, i) => {
-        const [x, y] = polarPoint(cx, cy, radius, i * angleStep);
-        const [tx, ty] = polarPoint(cx, cy, radius + 12, i * angleStep);
-        return (
-          <g key={label}>
-            <line x1={cx} y1={cy} x2={x} y2={y} stroke="var(--panel-border)" />
-            <text x={tx} y={ty} textAnchor="middle" dominantBaseline="middle" className="text-xs" style={{ fill: 'var(--foreground)' }}>
-              {label}
-            </text>
-          </g>
-        );
-      })}
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100%',
+        padding: '1rem',
+        boxSizing: 'border-box',
+      }}
+    >
+      <svg
+        viewBox={`0 0 ${width} ${height}`}
+        preserveAspectRatio="xMidYMid meet"
+        role="img"
+        aria-label={title}
+        className="w-full h-auto max-w-[400px] mx-auto block"
+      >
+        <title>{title}</title>
 
-      {datasets.map((d, idx) => (
-        <g key={idx}>
-          <polygon points={polygonPoints(d.values)} fill={d.color + '22'} stroke={d.color} strokeWidth={3} />
-        </g>
-      ))}
-    </svg>
+        {/* Grid circular */}
+        {grid.map((r, idx) => (
+          <circle
+            key={idx}
+            cx={cx}
+            cy={cy}
+            r={r}
+            fill="none"
+            stroke="var(--panel-border)"
+          />
+        ))}
+
+        {/* Eixos e rótulos */}
+        {axes.map((label, i) => {
+          const [x, y] = polarPoint(cx, cy, radius, i * angleStep);
+          const [tx, ty] = polarPoint(cx, cy, radius + 12, i * angleStep);
+          return (
+            <g key={label}>
+              <line x1={cx} y1={cy} x2={x} y2={y} stroke="var(--panel-border)" />
+              <text
+                x={tx}
+                y={ty}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className="text-xs"
+                style={{ fill: 'var(--foreground)' }}
+              >
+                {label}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Polígonos dos datasets */}
+        {datasets.map((d, idx) => (
+          <g key={idx}>
+            <polygon
+              points={polygonPoints(d.values)}
+              fill={d.color + '22'}
+              stroke={d.color}
+              strokeWidth={3}
+            />
+          </g>
+        ))}
+      </svg>
+    </div>
   );
 }

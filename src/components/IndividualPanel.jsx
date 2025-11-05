@@ -40,7 +40,7 @@ export default function IndividualPanel({ candidate }) {
         />
       </div>
       {!candidate && (
-        <p className="text-xs text-gray-600 text-center">Selecione um candidato para visualizar o radar.</p>
+        <p className="text-xs text-gray-700 text-center mt-12">Selecione um candidato para visualizar o radar.</p>
       )}
     </div>
   );
