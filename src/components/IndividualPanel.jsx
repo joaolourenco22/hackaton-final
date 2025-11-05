@@ -28,6 +28,9 @@ export default function IndividualPanel({ candidate }) {
 
   return (
     <div className="grid grid-cols-1 gap-3 items-center">
+      {candidate && (
+        <p className="text-sm font-bold text-gray-800 text-center">{candidate.name}</p>
+      )}
       <div className="md:col-span-2">
         <Radar
           title={candidate ? `Soft Skills de ${candidate.name}` : 'Soft Skills'}
@@ -42,4 +45,3 @@ export default function IndividualPanel({ candidate }) {
     </div>
   );
 }
-
