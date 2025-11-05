@@ -4,6 +4,7 @@ import Image from 'next/image';
 const items = [
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Candidatos', href: '/candidatos' },
+  { label: 'Filtrar Candidato', href: '/filtro'},
 ];
 
 export default function Sidebar2() {

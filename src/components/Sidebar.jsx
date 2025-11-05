@@ -2,9 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 
 const items = [
-  { label: 'Início', href: '/' },
+  { label: 'Inï¿½cio', href: '/' },
   { label: 'Candidatos', href: '/candidatos' },
-  { label: 'Filtrar Talento', href: '#' },
+  { label: 'Filtrar Candidato', href: '/filtro'}
 ];
 
 export default function Sidebar() {
