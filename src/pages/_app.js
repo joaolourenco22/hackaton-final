@@ -33,6 +33,8 @@ export default function App({ Component, pageProps }) {
     }
   }
 
+  // Dark mode automático via CSS (sem botão/toggle)
+
   const isPublic = router.pathname === '/';
 
   if (isPublic) {
@@ -41,13 +43,13 @@ export default function App({ Component, pageProps }) {
   }
 
   return (
-    <div className="min-h-screen ui-shell flex">
+    <div className="min-h-screen flex bg-gradient-to-br from-violet-50 to-indigo-50/30 text-gray-900">
       <Sidebar />
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col min-h-screen">
         {user && (
-          <div className="px-4 py-2 border-b border-gray-200 bg-white/90 flex items-center justify-between">
+          <div className="sticky top-0 z-30 flex items-center justify-between px-4 py-2 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-violet-100">
             <div className="text-sm text-gray-800"><span className="font-bold">Bem-vindo!</span></div>
-            <button onClick={logout} className="text-xs text-gray-600 underline">Sair</button>
+            <button onClick={logout} className="text-xs text-violet-700 hover:text-violet-800 underline">Sair</button>
           </div>
         )}
         <Component {...pageProps} />

@@ -51,11 +51,11 @@ export default function Candidatos() {
   }, [weightHard]);
 
   return (
-    <div className="bg-[#f5f5f8] min-h-screen p-4">
-      <div className="max-w-7xl mx-auto space-y-4">
+    <div className="min-h-screen p-4">
+      <div className="max-w-7xl mx-auto space-y-6">
         <header className="flex items-center justify-between">
-          <h1 className="text-xl font-semibold">Ranking de Candidatos</h1>
-          <div className="text-sm text-gray-800">Ordenado por Maior Score</div>
+          <h1 className="text-xl font-semibold text-gray-900">Ranking de Candidatos</h1>
+          <div className="text-sm text-gray-700">Ordenado por Maior Score</div>
         </header>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

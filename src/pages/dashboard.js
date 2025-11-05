@@ -71,8 +71,8 @@ export default function Home() {
   }
 
   return (
-    <div className="bg-[#f5f5f8] min-h-screen p-4">
-      <div className="max-w-7xl mx-auto space-y-4">
+    <div className="min-h-screen p-4">
+      <div className="max-w-7xl mx-auto space-y-6">
         {/* KPIs topo */}
         <KPIs kpis={kpis} jobsCount={0} />
 

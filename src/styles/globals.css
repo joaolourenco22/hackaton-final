@@ -31,8 +31,11 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0f1115;
+    --foreground: #e6e6e6;
+    --panel-bg: #111318;
+    --panel-border: #1f2937; /* gray-800/700 mix */
+    --panel-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(0,0,0,0.4);
   }
 }
 
@@ -102,7 +105,7 @@ body {
 /* Progress bar */
 .ui-progress {
   height: 6px;
-  background: #F3F4F6; /* gray-100 */
+  background: #F3F4F6; /* light default */
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -113,4 +116,27 @@ body {
   border-radius: inherit;
   transition: width .3s ease;
 }
+
+@media (prefers-color-scheme: dark) {
+  .ui-progress { background: #1f2937; }
+}
+
+/* Explicit theme overrides via data-theme attribute (overrides media) */
+:root[data-theme='light'] {
+  --background: var(--nu-cinza-claro);
+  --foreground: var(--nu-preto);
+  --panel-bg: #ffffff;
+  --panel-border: #E5E7EB;
+  --panel-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 8px 20px rgba(16, 24, 40, 0.04);
+}
+:root[data-theme='dark'] {
+  --background: #0f1115;
+  --foreground: #e6e6e6;
+  --panel-bg: #111318;
+  --panel-border: #1f2937;
+  --panel-shadow: 0 1px 0 rgba(255,255,255,0.04) inset, 0 0 0 1px rgba(0,0,0,0.4);
+}
+
+[data-theme='light'] .ui-progress { background: #F3F4F6; }
+[data-theme='dark'] .ui-progress { background: #1f2937; }
 

@@ -12,7 +12,7 @@ function Select({ id, children, ...props }) {
   return (
     <select
       id={id}
-      className="w-full border border-gray-300 rounded px-3 py-2 bg-white outline-none focus:ring-2 focus:ring-violet-500"
+      className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white outline-none focus:ring-2 focus:ring-violet-500"
       {...props}
     >
       {children}
@@ -38,14 +38,14 @@ export default function Filters({
   const disableRegion = filters?.home_office === 'yes' || filters?.modalidade === 'remote';
 
   return (
-    <section className="ui-panel p-4">
-      <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
+    <section className="ui-panel p-5">
+      <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
         <div className="md:col-span-2">
           <Label htmlFor="stacks">Stacks/Linguagens (multi)</Label>
           <select
             id="stacks"
             multiple
-            className="w-full border border-gray-300 rounded px-3 py-2 bg-white outline-none focus:ring-2 focus:ring-violet-500 h-32"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white outline-none focus:ring-2 focus:ring-violet-500 h-32"
             value={filters.stacks || []}
             onChange={(e) => {
               const vals = Array.from(e.target.selectedOptions).map((o) => o.value);

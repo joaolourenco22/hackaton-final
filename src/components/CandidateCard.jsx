@@ -73,7 +73,7 @@ export default function CandidateCard({ candidate, index = 0, onClick }) {
 
   return (
     <article
-      className="ui-panel relative overflow-hidden p-5 hover:shadow-md transition-shadow duration-200"
+      className="ui-panel relative overflow-hidden p-5 transition duration-200 hover:shadow-md hover:-translate-y-0.5 hover:ring-1 hover:ring-violet-100"
       aria-label={`Candidato ${candidate.name}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}

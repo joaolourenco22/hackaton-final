@@ -3,9 +3,9 @@ import React from 'react';
 export default function Ranking({ candidates = [], selectedIds = [], onToggleSelect, activeId, onActiveChange }) {
   return (
     <div className="ui-panel p-2 overflow-y-auto max-h-[420px]">
-      <table className="min-w-full text-sm">
-        <thead>
-          <tr className="text-left text-gray-800">
+      <table className="min-w-full w-full table-auto text-sm">
+        <thead className="sticky top-0 z-10 bg-gray-50">
+          <tr className="text-left text-gray-800 text-xs uppercase tracking-wide">
             <th className="p-2">Comparar</th>
             <th className="p-2">Nome</th>
             <th className="p-2">Role</th>

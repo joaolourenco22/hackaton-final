@@ -38,10 +38,10 @@ export default function Sidebar2() {
 
   return (
     <aside className="w-64 shrink-0 h-screen sticky top-0 left-0 flex flex-col">
-      <div className="ui-sidebar flex-1 flex flex-col overflow-hidden">
+      <div className="flex-1 flex flex-col overflow-hidden bg-gradient-to-b from-violet-600 to-indigo-600 text-white">
         <div className="h-20 px-5 flex items-center border-b border-white/15">
           <Image src="/logotipoN.png" alt="EGJP Solution" width={80} height={80}  />
-          <span className="font-semibold text-white">DevMatch</span>
+          <span className="ml-2 font-semibold tracking-wide">DevMatch</span>
         </div>
         <nav className="flex-1 overflow-y-auto py-4" aria-label="Sidebar">
           <ul className="space-y-2 px-3">
@@ -52,7 +52,7 @@ export default function Sidebar2() {
                 <li key={it.label}>
                   <Link
                     href={it.href}
-                    className={`group relative flex items-center gap-3 px-3.5 py-2 rounded-xl text-sm transition-colors ${active ? 'text-white' : 'text-white/90 hover:text-white'}`}
+                    className={`group relative flex items-center gap-3 px-3.5 py-2 rounded-xl text-sm transition-colors ${active ? 'bg-white/10 text-white shadow-sm' : 'text-white/90 hover:text-white hover:bg-white/10'}`}
                     aria-current={active ? 'page' : undefined}
                   >
                     <span className="inline-flex items-center justify-center w-8 h-8 rounded-lg text-white/90">

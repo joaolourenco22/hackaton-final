@@ -17,8 +17,8 @@ export default function IndividualPanel({ candidate }) {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-1 gap-9 items-center">
-      <p classname="font-semibold justify-center text-yellow-500">{candidate.name}</p>
+    <div className="grid grid-cols-1 gap-6 items-center">
+      <p className="text-sm font-medium text-gray-700 text-center">{candidate.name}</p>
       <div className="md:col-span-2">
         <Radar title={`Soft Skills de ${candidate.name}`} axes={axes} datasets={[{ label: candidate.name, color: '#7c3aed', values }]} maxValue={100} />
       </div>
